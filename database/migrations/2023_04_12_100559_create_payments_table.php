@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('payerId');
-            $table->integer("type");
+            $table->integer("type")->default(1)->comment('1-academy,2-investment');
             $table->double('amount');
             $table->timestamps();
 
-            $table->foreign('payerId')->references('id')->on('user');
+            $table->foreign('payerId')->references('id')->on('users');
         });
     }
 

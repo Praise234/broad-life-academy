@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->unsignedBigInteger('videoId');
             $table->timestamps();
 
-            $table->foreign('videoId')->references('id')->on('videos');
         });
     }
 

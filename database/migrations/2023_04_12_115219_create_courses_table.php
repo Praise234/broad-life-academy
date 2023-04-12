@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('duration');
             $table->string('description');
             $table->string('objectives');
-            $table->string("imageUrl");
             $table->timestamps();
 
             $table->foreign('instructorId')->references('id')->on('instructors');
