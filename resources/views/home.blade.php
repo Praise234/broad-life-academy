@@ -1,4 +1,6 @@
-@extends('layout')
+<!-- Include layout.blade.php -->
+@extends('layout') 
+<!-- Capture content in a section -->
 @section('body')
     <!-- Header 
     ============================================= -->

@@ -1,3 +1,4 @@
+<!-- If URL points to the homepage -->
 @if(Request::path() === '/')
     <!DOCTYPE html>
     <html lang="en">
@@ -228,6 +229,7 @@
         </footer>
         <!-- End Footer-->
 
+<!-- if URL points to login/register page-->
 @elseif(Request::path() === 'register' || Request::path() === 'login')
 
     <!DOCTYPE html>

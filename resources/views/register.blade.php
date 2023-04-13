@@ -10,40 +10,49 @@
                     <div class="login-box">
                         <div class="login">
                             <div class="content">
+                                <!-- Display error if any -->
+                                @if(Session::has('error')) <div class="alert alert-danger text-white">{{Session::get('error')}}</div> @endif
                                 <a href="/"><img src="../img/logo.png" alt="Logo"></a>
-                                <form action="#">
+                                <form action="{{route('save_user')}}" method = "POST">
+                                    <!-- {{ csrf_field() }} -->
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <i class="fas fa-user"></i> <input class="form-control" placeholder="Name*" type="text">
+                                                <i class="fas fa-user"></i> <input class="form-control" name= "fullname" placeholder="Name*" type="text" required>
+                                                <span class="text-danger">{{Session::has('fail') ? join(",", Session::get('fail')->get('fullname')) : ""}}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <i class="fas fa-envelope-open"></i> <input class="form-control" placeholder="Email*" type="email">
+                                                <i class="fas fa-envelope-open"></i> <input class="form-control" name="email" placeholder="Email*" type="email" required>
+                                                <span class="text-danger">{{Session::has('fail') ? join(",", Session::get('fail')->get('email')) : ""}}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <i class="fas fa-phone"></i> <input class="form-control" placeholder="Phone*" type="telx">
+                                                <i class="fas fa-phone"></i> <input class="form-control" name="phone" placeholder="Phone*" type="tel" required>
+                                                <span class="text-danger">{{Session::has('fail') ? join(",", Session::get('fail')->get('phone')) : ""}}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <i class="fas fa-lock"></i> <input class="form-control" placeholder="Password*" type="text">
+                                                <i class="fas fa-lock"></i> <input class="form-control" name ="password" placeholder="Password*" type="password" required>
+                                                <span class="text-danger">{{Session::has('fail') ? join(",", Session::get('fail')->get('password')) : ""}}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <i class="fas fa-lock"></i> <input class="form-control" placeholder="Confirm Password*" type="text">
+                                                <i class="fas fa-lock"></i> <input class="form-control" name ="password_verify" placeholder="Confirm Password*" type="password" required>
+                                                <span class="text-danger">{{Session::has('fail') ? join(",", Session::get('fail')->get('password_verify')) : ""}}</span>
                                             </div>
                                         </div>
                                     </div>
